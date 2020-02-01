@@ -1,0 +1,11 @@
+*.tar
+*.tar.*
+*.tgz
+*.zip
+*.log
+*.log.*
+*.asc
+*.sig
+*.bak
+
+*/**/
