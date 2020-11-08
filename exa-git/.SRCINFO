@@ -1,0 +1,21 @@
+pkgbase = exa-git
+	pkgdesc = Replacement for ls written in Rust.
+	pkgver = v0.9.0.r80.78ba0b8
+	pkgrel = 1
+	url = https://github.com/ogham/exa
+	arch = i686
+	arch = x86_64
+	license = MIT
+	makedepends = cmake
+	makedepends = rust
+	makedepends = cargo
+	makedepends = git
+	depends = libssh2
+	depends = zlib
+	provides = exa
+	conflicts = exa
+	source = git+https://github.com/ogham/exa.git
+	md5sums = SKIP
+
+pkgname = exa-git
+
