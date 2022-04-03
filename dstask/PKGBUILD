@@ -22,31 +22,14 @@ build() {
     export CGO_CXXFLAGS="${CXXFLAGS}"
     export CGO_LDFLAGS="${LDFLAGS}"
 
-    go build \
-        -trimpath \
-        -buildmode=pie \
-        -mod=readonly \
-        -modcacherw \
-        -ldflags "-linkmode=external
-            -X \"github.com/naggie/dstask.GIT_COMMIT=$_commit\"
-            -X \"github.com/naggie/dstask.VERSION=$pkgver\"
-            -X \"github.com/naggie/dstask.BUILD_DATE=$(date -d@"$SOURCE_DATE_EPOCH" +%FT%TZ)\"" \
-        -o dstask \
-        cmd/dstask/main.go
+    export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
+    _GOLDFLAGS="-linkmode=external \
+        -X \"github.com/naggie/dstask.GIT_COMMIT=$_commit\"
+        -X \"github.com/naggie/dstask.VERSION=$pkgver\"
+        -X \"github.com/naggie/dstask.BUILD_DATE=$(date -d@"$SOURCE_DATE_EPOCH" +%FT%TZ)\""
 
-    go build \
-        -trimpath \
-        -buildmode=pie \
-        -mod=readonly \
-        -modcacherw \
-        -ldflags "-linkmode=external
-            -X \"github.com/naggie/dstask.GIT_COMMIT=$_commit\"
-            -X \"github.com/naggie/dstask.VERSION=$pkgver\"
-            -X \"github.com/naggie/dstask.BUILD_DATE=$(date -d@"$SOURCE_DATE_EPOCH" +%FT%TZ)\"" \
-        -o dstask-import \
-        cmd/dstask-import/main.go
-
-
+    go build -ldflags="${_GOLDFLAGS}" -o dstask ./cmd/dstask/main.go
+    go build -ldflags="${_GOLDFLAGS}" -o dstask-import ./cmd/dstask-import/main.go
 }
 
 package() {
