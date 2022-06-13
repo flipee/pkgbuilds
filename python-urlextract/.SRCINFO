@@ -1,0 +1,16 @@
+pkgbase = python-urlextract
+	pkgdesc = A python class for collecting (extracting) URLs from given text based on locating TLD
+	pkgver = 1.6.0
+	pkgrel = 1
+	url = https://github.com/lipoja/URLExtract
+	arch = any
+	license = MIT
+	depends = python-filelock
+	depends = python-idna
+	depends = python-platformdirs
+	depends = python-setuptools
+	depends = python-uritools
+	source = https://files.pythonhosted.org/packages/source/u/urlextract/urlextract-1.6.0.tar.gz
+	sha256sums = 574f0d8c562d377336a5154840c7e4eecf54c102a538971c897f7313075a8887
+
+pkgname = python-urlextract

@@ -1,0 +1,25 @@
+# Maintainer: Filipe Nascimento <flipee at tuta dot io>
+
+pkgname=python-cachew
+_module=${pkgname#python-}
+pkgver=0.10.0
+pkgrel=1
+pkgdesc="Transparent and persistent cache/serialization powered by type hints"
+arch=('any')
+url="https://github.com/karlicoss/cachew"
+license=('MIT')
+depends=('python-appdirs' 'python-sqlalchemy')
+makedepends=('python-setuptools-scm')
+source=("https://files.pythonhosted.org/packages/source/${_module::1}/${_module}/${_module}-${pkgver}.tar.gz")
+sha256sums=('70a9a46e00c7d45bbbef3ef19167ffdcc3fb1f4914b60383207b5c7684519e58')
+
+build() {
+    cd ${_module}-${pkgver}
+    python setup.py build
+}
+
+package() {
+    cd ${_module}-${pkgver}
+    python setup.py install --root="${pkgdir}/" --optimize=1 --skip-build
+    install -Dm644 LICENSE.txt -t "${pkgdir}/usr/share/licenses/${pkgname}"
+}

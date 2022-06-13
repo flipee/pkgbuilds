@@ -1,0 +1,24 @@
+# Maintainer: Filipe Nascimento <flipee at tuta dot io>
+
+pkgname="python-urlextract"
+_module=${pkgname#python-}
+pkgver=1.6.0
+pkgrel=1
+pkgdesc="A python class for collecting (extracting) URLs from given text based on locating TLD"
+arch=('any')
+url="https://github.com/lipoja/URLExtract"
+license=('MIT')
+depends=('python-filelock' 'python-idna' 'python-platformdirs' 'python-setuptools' 'python-uritools')
+source=("https://files.pythonhosted.org/packages/source/${_module::1}/${_module}/${_module}-${pkgver}.tar.gz")
+sha256sums=('574f0d8c562d377336a5154840c7e4eecf54c102a538971c897f7313075a8887')
+
+build() {
+    cd ${_module}-${pkgver}
+    python setup.py build
+}
+
+package() {
+    cd ${_module}-${pkgver}
+    python setup.py install --root="${pkgdir}/" --optimize=1 --skip-build
+    install -Dm644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
+}

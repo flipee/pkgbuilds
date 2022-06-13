@@ -1,0 +1,28 @@
+# Maintainer: Filipe Nascimento <flipee at tuta dot io>
+
+pkgname=promnesia
+pkgver=1.0.20220515
+pkgrel=1
+pkgdesc="A browser extension for Chrome/Firefox which serves as a web surfing copilot, enhancing 
+         your browsing history and web exploration experience"
+arch=('any')
+url="https://beepb00p.xyz/promnesia.html"
+license=('GPL3')
+depends=('python-appdirs' 'python-cachew' 'python-hug' 'python-more-itertools' 'python-pytz'
+         'python-setuptools' 'python-sqlalchemy' 'python-tzlocal' 'python-urlextract' )
+makedepends=('python-setuptools-scm')
+optdepends=('python-logzero: pretty colored logging'
+            'python-magic: better MIME type detection')
+source=("https://files.pythonhosted.org/packages/source/${pkgname::1}/$pkgname/$pkgname-$pkgver.tar.gz")
+sha256sums=('4abdcb769c39d1e74d577507b90895232ad476e7c80435dadde3ffdd2775966d')
+
+build() {
+    cd ${pkgname}-${pkgver}
+    python setup.py build
+}
+
+package() {
+    cd ${pkgname}-${pkgver}
+    python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
+    install -Dm644 LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
+}

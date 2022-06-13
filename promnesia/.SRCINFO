@@ -1,0 +1,23 @@
+pkgbase = promnesia
+	pkgdesc = A browser extension for Chrome/Firefox which serves as a web surfing copilot, enhancing your browsing history and web exploration experience
+	pkgver = 1.0.20220515
+	pkgrel = 1
+	url = https://beepb00p.xyz/promnesia.html
+	arch = any
+	license = GPL3
+	makedepends = python-setuptools-scm
+	depends = python-appdirs
+	depends = python-cachew
+	depends = python-hug
+	depends = python-more-itertools
+	depends = python-pytz
+	depends = python-setuptools
+	depends = python-sqlalchemy
+	depends = python-tzlocal
+	depends = python-urlextract
+	optdepends = python-logzero: pretty colored logging
+	optdepends = python-magic: better MIME type detection
+	source = https://files.pythonhosted.org/packages/source/p/promnesia/promnesia-1.0.20220515.tar.gz
+	sha256sums = 4abdcb769c39d1e74d577507b90895232ad476e7c80435dadde3ffdd2775966d
+
+pkgname = promnesia
