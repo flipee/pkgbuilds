@@ -1,7 +1,7 @@
 pkgbase = velero
 	pkgdesc = Backup and migrate Kubernetes applications and their persistent volumes
 	pkgver = 1.13.1
-	pkgrel = 1
+	pkgrel = 2
 	url = https://velero.io
 	arch = x86_64
 	arch = armv6h
@@ -14,7 +14,7 @@ pkgbase = velero
 	depends = kubectl
 	source = git+https://github.com/vmware-tanzu/velero#tag=v1.13.1
 	source = build.patch
-	sha256sums = SKIP
+	sha256sums = 1640efd82ca2345f1951129af244f314561f74b163d1ea4c6b51b09932f1a38c
 	sha256sums = 8fab0a9386152f94dafaf07aa3d4e23d43924fb279671f0e1988d5b35b20df0d
 
 pkgname = velero
