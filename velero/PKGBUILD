@@ -2,7 +2,7 @@
 
 pkgname=velero
 pkgver=1.13.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Backup and migrate Kubernetes applications and their persistent volumes"
 arch=('x86_64' 'armv6h' 'armv7h' 'aarch64')
 url="https://velero.io"
@@ -11,7 +11,7 @@ depends=('glibc' 'kubectl')
 makedepends=('git' 'go')
 source=("git+https://github.com/vmware-tanzu/velero#tag=v$pkgver"
         "build.patch")
-sha256sums=('SKIP'
+sha256sums=('1640efd82ca2345f1951129af244f314561f74b163d1ea4c6b51b09932f1a38c'
             '8fab0a9386152f94dafaf07aa3d4e23d43924fb279671f0e1988d5b35b20df0d')
 
 prepare() {
@@ -34,6 +34,7 @@ build() {
 
     ./velero completion bash | install -Dm644 /dev/stdin share/bash-completion/completions/velero
     ./velero completion zsh | install -Dm644 /dev/stdin share/zsh/site-functions/_velero
+    ./velero completion fish | install -Dm644 /dev/stdin share/fish/vendor_completions.d/velero.fish
 }
 
 package() {
