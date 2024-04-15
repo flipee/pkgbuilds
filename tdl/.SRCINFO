@@ -1,17 +1,18 @@
 pkgbase = tdl
-	pkgdesc = TODO list manager
-	pkgver = 1.5.2
-	pkgrel = 7
-	url = https://github.com/rc0/tdl
-	arch = x86_64
+	pkgdesc = Telegram Downloader, but more than a downloader
+	pkgver = 0.16.2
+	pkgrel = 1
+	url = https://docs.iyear.me/tdl
 	arch = i686
-	license = GPL
+	arch = x86_64
+	arch = armv6h
+	arch = armv7h
+	arch = aarch64
+	license = AGPL-3.0-or-later
+	makedepends = go
 	makedepends = git
-	depends = readline
-	source = tdl::git://github.com/T-J-Teru/tdl.git#commit=382c52a2d1f2d064110c189459fe09a6edb12761
-	source = readline63.patch
-	md5sums = SKIP
-	md5sums = dada1488632f9d672e75e15cfb011ecb
+	depends = glibc
+	source = tdl-0.16.2.tar.gz::https://github.com/iyear/tdl/archive/v0.16.2.tar.gz
+	sha256sums = aaae011e6c2f453a9d53b08de87dad04caeb90b0a8e9bf3c07abf1d2eb84a33f
 
 pkgname = tdl
-
