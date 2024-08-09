@@ -9,7 +9,7 @@ pkgdesc="Provides a Ruby implementation of the XDG Base Directory Specification"
 arch=('any')
 url="https://www.alchemists.io/projects/xdg"
 license=('Apache')
-depends=('ruby>=3.1')
+depends=('ruby>=3.3')
 makedepends=('ruby-rdoc')
 options=(!emptydirs)
 source=("http://rubygems.org/downloads/xdg-$pkgver.gem")

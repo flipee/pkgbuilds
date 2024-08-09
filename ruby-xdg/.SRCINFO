@@ -6,7 +6,7 @@ pkgbase = ruby-xdg
 	arch = any
 	license = Apache
 	makedepends = ruby-rdoc
-	depends = ruby>=3.1
+	depends = ruby>=3.3
 	noextract = xdg-8.5.0.gem
 	options = !emptydirs
 	source = http://rubygems.org/downloads/xdg-8.5.0.gem
